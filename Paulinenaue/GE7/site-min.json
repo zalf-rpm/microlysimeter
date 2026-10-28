@@ -1,0 +1,33 @@
+{
+  "SiteParameters": {
+    "Latitude":52.675,
+    "Slope": 0,
+    "HeightNN": [0 , "m"],
+    "NDeposition": [30, "kg N ha-1 y-1"],
+		
+    "SoilProfileParameters": [
+			{
+				"Thickness": [0.2, "m"],
+				"SoilOrganicCarbon": [1.44, "%"],
+				"KA5TextureClass": "Sl4",
+                "Clay": 0.155,
+                "Sand": 0.577,
+				"SoilRawDensity": [1249, "kg m-3"],
+                "SoilMoisturePercentFC": [100, "%"]
+			}
+		]
+  },
+	
+  "SoilTemperatureParameters": ["include-from-file", "general/soil-temperature.json"],
+  "EnvironmentParameters": {
+    "=": ["include-from-file", "general/environment.json"],
+    "LeachingDepth": 0.2
+  },
+  "SoilOrganicParameters": ["include-from-file", "general/soil-organic.json"],
+  "SoilTransportParameters": ["include-from-file", "general/soil-transport.json"],
+  "SoilMoistureParameters": {
+    "=": ["include-from-file", "general/soil-moisture.json"],
+    "KcFactor": 0.2,
+    "MaximumEvaporationImpactDepth": 2
+  }
+}

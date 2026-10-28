@@ -1,0 +1,66 @@
+{
+	"crop.json": "crop-min.json",
+	"site.json": "site-min.json",
+	"climate.csv": "climate-GE2-7.csv",
+
+	"climate.csv-options": {
+		"start-date": "2018-07-20",
+		"end-date": "2023-01-03",
+		"no-of-climate-file-header-lines": 2,
+		"csv-separator": ","
+	},
+	
+	"debug?": false,
+	"include-file-base-path": "${MONICA_PARAMETERS}/",
+
+	"output": { 
+	  "write-file?": true,
+
+		"path-to-output": "./",
+		"file-name": "GE2-out.csv",
+	
+		"csv-options": {
+			"include-header-row": true,
+			"include-units-row": true,
+			"include-aggregation-rows": false,
+			"csv-separator": ","
+		},
+		
+		"events" : [
+			
+			"daily", [
+				"Date", 
+				"Precip", 
+				["Mois", [1, 2]], 
+				["Mois", [1, 2, "AVG"]], 
+				["SOC", [1, 2]],
+				["Act_ET", [1, 2, "AVG"]],
+				["Fc", [1, 2]],
+				["Pwp", [1, 2]],
+				["NO3", [1, 2]],
+				["Nmin", [1, 2]],
+				["Recharge", "SUM"],
+				["NLeach", "SUM"],
+				"Tavg", 
+				"Globrad"
+			],
+
+
+			"yearly", [
+				"Year", 
+				["N", [1, 2]], 
+				["RunOff", "SUM"], 
+				["NLeach", "SUM"], 
+				["Recharge", "SUM"]
+			],
+
+			"run", [["Precip", "SUM"]]
+		]
+	},
+
+	"UseSecondaryYields": true,
+	"NitrogenResponseOn": true,
+	"WaterDeficitResponseOn": true,
+	"EmergenceMoistureControlOn": true,
+	"EmergenceFloodingControlOn": false
+}
