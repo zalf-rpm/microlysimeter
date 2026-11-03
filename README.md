@@ -2,12 +2,13 @@
 
 This repository contains MONICA simulation inputs for microlysimeter measurements in Grossbeeren and Paulinenaue.
 
-The setup includes seven simulations:
+The setup includes eleven simulations:
 
 | Location | Simulations | Start date | End date |
 | --- | --- | --- | --- |
 | Grossbeeren | GE1 | 2003-04-23 | 2006-04-24 |
 | Paulinenaue | GE2–GE7 | 2018-07-20 | 2023-01-03 |
+| Rheinland-Pfalz | GE8–GE11 | 2003-04-23 | 2006-04-24 |
 
 ## Repository contents
 
@@ -15,8 +16,9 @@ The setup includes seven simulations:
 | --- | --- |
 | `Grossbeeren/GE1/` | GE1 simulation configuration and inputs. |
 | `Paulinenaue/GE2/` … `Paulinenaue/GE7/` | GE2–GE7 simulation configurations and inputs. |
-| `nleach_measured.csv` | Measured nitrogen leaching for GE1–GE7. Unit: kg N ha-1, Area: 0.04909 m<sup>2</sup> |
-| `waterleach_measured.csv` | Measured water leaching for GE1–GE7. Unit: mm, Area: 0.04909 m<sup>2</sup> |
+| `Rheinland-Pfalz/GE8/` … `Paulinenaue/GE11/` | GE8–GE11 simulation configurations and inputs. |
+| `nleach_measured.csv` | Measured nitrogen leaching for GE1–GE11. Unit: kg N ha-1 |
+| `waterleach_measured.csv` | Measured water leaching for GE1–GE11. Unit: mm |
 | `run_monica.cmd` | Windows batch script that runs every `sim-min.json` configuration. |
 
 Each simulation directory contains:
@@ -24,7 +26,7 @@ Each simulation directory contains:
 - `sim-min.json`: Simulation configurations linking crop management, site, climate files, and output settings.
 - `crop-min.json`: General crop parameters. The current crop rotations have empty workstep lists.
 - `site-min.json`: Site-specific soil profiles and parameters.
-- `climate-GE1.csv` (GE1) or `climate-GE2-7.csv` (GE2–GE7): Daily weather inputs.
+- `climate-GE1.csv` (GE1, GE8–GE11) or `climate-GE2-7.csv` (GE2–GE7): Daily weather inputs.
 
 ## Requirements
 
@@ -39,7 +41,7 @@ The MONICA executable and its parameter library are external dependencies and ar
 
    ```bat
    set MONICA_PARAMETERS=C:\zalf-rpm\monica-parameters
-   set MONICA_EXE="C:\MONICA\monica_win64_3.6.56.OxygenDeficit_fix\bin\monica-run.exe"
+   set MONICA_EXE="C:\MONICA\monica_win64_3.7.1.improved_merge_climate_data\bin\monica-run.exe"
    ```
 
    `MONICA_PARAMETERS` supplies the base directory for parameter files referenced by the JSON inputs.
