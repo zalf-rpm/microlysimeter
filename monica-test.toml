@@ -5,3 +5,52 @@ sims = ["*/GE*/sim-min.json"]
 [compare]
 # exact equality unless a column below says otherwise
 default = { atol = 0.0, rtol = 0.0 }
+
+# Measurements to compare the simulations with (tests/validate.py in
+# zalf-rpm/monica): per lysimeter (site = GE1...GE11), the cumulative amounts
+# and the amounts of each sampling period ("mean"; "sd" between replicates).
+[[observed]]
+name = "N leaching, cumulative"
+file = "nleach_measured.csv"
+sim = "*/{site}/sim-min"
+label = "{site}"
+group = "site"
+date = "date"
+value = "cumulative"
+unit = "kg N/ha"
+output = { section = "daily", column = "NLeach", accumulate = "since-first" }
+
+[[observed]]
+name = "N leaching per sampling period"
+file = "nleach_measured.csv"
+sim = "*/{site}/sim-min"
+label = "{site}"
+group = "site"
+date = "date"
+value = "mean"
+sd = "sd"
+unit = "kg N/ha"
+output = { section = "daily", column = "NLeach", accumulate = "since-previous" }
+
+[[observed]]
+name = "Water leaching, cumulative"
+file = "waterleach_measured.csv"
+sim = "*/{site}/sim-min"
+label = "{site}"
+group = "site"
+date = "date"
+value = "cumulative"
+unit = "mm"
+output = { section = "daily", column = "Recharge", accumulate = "since-first" }
+
+[[observed]]
+name = "Water leaching per sampling period"
+file = "waterleach_measured.csv"
+sim = "*/{site}/sim-min"
+label = "{site}"
+group = "site"
+date = "date"
+value = "mean"
+sd = "sd"
+unit = "mm"
+output = { section = "daily", column = "Recharge", accumulate = "since-previous" }

@@ -28,6 +28,7 @@ simulations - is Grossbeeren's: GE8–GE11 use the same climate file as GE1
 | `nleach_measured.csv` | Measured nitrogen leaching for GE1–GE11. Unit: kg N ha-1 |
 | `waterleach_measured.csv` | Measured water leaching for GE1–GE11. Unit: mm |
 | `run_monica.cmd` | Windows batch script that runs every `sim-min.json` configuration. |
+| `monica-test.toml` | Manifest for MONICA's test suite (zalf-rpm/monica, `tests/`): the simulations to run and the measurements to compare them with; CI then reports statistics and plots of simulated vs measured N and water leaching. |
 
 Each simulation directory contains:
 
